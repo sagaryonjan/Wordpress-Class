@@ -7,7 +7,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Wordpress_Class
- */
+ 
 
 ?>
 
@@ -26,3 +26,24 @@
 
 </body>
 </html>
+*/
+?>
+
+<!--Footer Section Starts -->
+<div class="footer">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="footer_main">
+<p>&copy All Right Reserved By  Ndi.org  2016 &nbsp; &nbsp; || &nbsp; &nbsp Design And Developed By  : ajhsaklfsajhfals k</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Section End -->
+</body>
+</html>
+<?php
+wp_footer();
+?>

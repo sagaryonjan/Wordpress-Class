@@ -1,64 +1,4 @@
 <?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Wordpress_Class
- 
-
-get_header(); ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-		this is test hjdkghsdkg
-
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-
-			<?php
-			endif;
-
-			/* Start the Loop 
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 
-				get_template_part( 'template-parts/content', get_post_format() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php
-get_sidebar();
-get_footer();
-*/
-?>
-
-<?php
 get_header();
 ?>
 <!--Mainber Section Starts -->
@@ -68,8 +8,8 @@ get_header();
 <div class="leftbar">
 <div class="photo_slider">
   <ul class="bxslider">
-    <li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/bg.gif" alt="Slider Img" /><p>asfjhflkahfaljk</p></li>
-    <li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg" alt="Slider Img" /><p>asfjhflkahfaljk</p></li>
+    <li><img src="images/bg.gif" alt="Slider Img" /><p>asfjhflkahfaljk</p></li>
+    <li><img src="images/about.jpg" alt="Slider Img" /><p>asfjhflkahfaljk</p></li>
   </ul>
 </div>
 <div class="intro_site">
@@ -84,7 +24,7 @@ get_header();
 <h2>Recent Featured Stories</h2>
 <div class="col-lg-6 col-sm-6">
 <div class="r_i_all">
-<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+<img src="images/about.jpg">
 </div>
 <div class="r_all_details">
 <a href="#">A Bipartisan Celebration of Democracy</a>
@@ -93,7 +33,7 @@ get_header();
 
 <div class="col-lg-6">
 <div class="r_i_all">
-<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+<img src="images/about.jpg">
 </div>
 <div class="r_all_details">
 <a href="#">A Bipartisan Celebration of Democracy</a>
@@ -102,7 +42,7 @@ get_header();
 
 <div class="col-lg-6">
 <div class="r_i_all">
-<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+<img src="images/about.jpg">
 </div>
 <div class="r_all_details">
 <a href="#">A Bipartisan Celebration of Democracy</a>
@@ -111,7 +51,7 @@ get_header();
 
 <div class="col-lg-6">
 <div class="r_i_all">
-<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+<img src="images/about.jpg">
 </div>
 <div class="r_all_details">
 <a href="#">A Bipartisan Celebration of Democracy</a>
@@ -120,7 +60,7 @@ get_header();
 
 <div class="col-lg-6">
 <div class="r_i_all">
-<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+<img src="images/about.jpg">
 </div>
 <div class="r_all_details">
 <a href="#">A Bipartisan Celebration of Democracy</a>
@@ -129,7 +69,7 @@ get_header();
 
 <div class="col-lg-6">
 <div class="r_i_all">
-<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+<img src="images/about.jpg">
 </div>
 <div class="r_all_details">
 <a href="#">A Bipartisan Celebration of Democracy</a>
@@ -245,7 +185,7 @@ get_header();
 <div class="recent_blog_main" id="ndi_service_main_div">
 <div class="col-lg-4 col-md-6">
 <div class="blog_image">
-<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+<img src="images/about.jpg">
 </div>
 <div class="blog_details">
 sfdsfdsfsd asfafafasf afasf
@@ -253,7 +193,7 @@ sfdsfdsfsd asfafafasf afasf
 </div>
 <div class="col-lg-4 col-md-6">
 <div class="blog_image">
-<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+<img src="images/about.jpg">
 </div>
 <div class="blog_details">
 sfdsfdsfsd asfafafasf afasf
@@ -261,7 +201,7 @@ sfdsfdsfsd asfafafasf afasf
 </div>
 <div class="col-lg-4 col-md-6">
 <div class="blog_image">
-<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+<img src="images/about.jpg">
 </div>
 <div class="blog_details">
 sfdsfdsfsd asfafafasf afasf
@@ -344,10 +284,10 @@ On October, 20, 2016, party leaders and aspiring presidential candidates from se
 <h3>Learn More</h3>	
 <div class="learn_main_section">
 <ul class="clearfix">
-<li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg"></li>
-<li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg"></li>
-<li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg"></li>
-<li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg"></li>
+<li><img src="images/about.jpg"></li>
+<li><img src="images/about.jpg"></li>
+<li><img src="images/about.jpg"></li>
+<li><img src="images/about.jpg"></li>
 
 </ul>
 </div>
