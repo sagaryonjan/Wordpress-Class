@@ -140,5 +140,5 @@ require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/wordpress_class_function.php';
 
 //get tempate
-
+require get_template_directory() . '/inc/wordpress_customizer_function.php';
 

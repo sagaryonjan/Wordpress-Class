@@ -127,39 +127,7 @@ wp_head();
             <div class="col-lg-12 nopadding">
                 <div class="top_section">
                     <div class="container">
-                        <div class="row">
-                            <?php
-                            $site_description = get_theme_mod('blog_header_textarea_setting');
-                            $btn_txt = get_theme_mod('blog_header_btnText_setting');
-
-                            ?>
-                            <?php if (get_theme_mod('blog_header_checkbox_setting') == 1): ?>
-                                <div class="col-lg-3">
-                                    <div class="logo">
-                                        <?php the_custom_logo(); ?>
-                                    </div>
-                                </div>
-                                <div class="col-lg-7">
-                                    <?php if (get_theme_mod('blog_textarea_enable_setting') == 1): ?>
-                                    <div class="welcome_text">
-                                        <p><?php echo $site_description; ?></p>
-                                    </div>
-                                    <?php
-                                    endif;
-
-                                    ?>
-                                </div>
-                                <?php if (get_theme_mod('blog_button_checkbox_setting') == 1): ?>
-                                    <div class="col-lg-2">
-                                        <div class="top_donamte_btn">
-                                            <button class="btn btn-info"><?php echo $btn_txt; ?></button>
-                                            <br/>
-                                        </div>
-                                    </div>
-
-                                <?php endif; ?>
-                            <?php endif; ?>
-                        </div>
+                       <?php blog_header(); ?>
                     </div>
                     <!-- Menubar Section Starts -->
                     <div class="menubar">
