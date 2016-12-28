@@ -132,3 +132,7 @@ require get_template_directory() . '/inc/jetpack.php';
  * Wordpress Related Register widget area.
  */
 require get_template_directory() . '/inc/wordpress_class_function.php';
+
+//get tempate
+
+
