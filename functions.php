@@ -65,6 +65,12 @@ function wordpress_class_setup() {
 		'default-image' => '',
 	) ) );
 
+	//add logo support added in wordpress 4.5
+	add_theme_support('custom-logo',array(
+	    'flex-width' => true,
+	    'flex-height' => true,
+    ));
+
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
