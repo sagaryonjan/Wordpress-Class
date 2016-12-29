@@ -67,8 +67,6 @@ function wordpress_class_customize_register( $wp_customize ) {
     ));
 
     // setting description
-
-
     $wp_customize->add_setting('blog_textarea_enable_setting',array(
         'default'   => '',
         'capability' => 'edit_theme_options',
@@ -82,9 +80,6 @@ function wordpress_class_customize_register( $wp_customize ) {
         'settings' => 'blog_textarea_enable_setting',
         'priority' => 5
     ));
-
-
-
 
     $wp_customize->add_setting('blog_header_btnText_setting',array(
         'default'   => '',
@@ -114,19 +109,17 @@ function wordpress_class_customize_register( $wp_customize ) {
 
 
     // site introduction add section
-
     $wp_customize->add_section('blog_introduction_section',array(
         'title'        => esc_html__('Site Introduction','blog'),
-        'description' => esc_html__('THis is header section','blog'),
-        'priority'    => 5
+        'description'  => esc_html__('THis is header section','blog'),
+        'priority'     => 5
     ) );
 
 
     //site introduction add setting
-
     $wp_customize->add_setting('site_introduction_settinng',array(
-        'default'   => '',
-        'capability' => 'edit_theme_options',
+        'default'            => '',
+        'capability'         => 'edit_theme_options',
         'sanitize_callback'  => 'blog_text_sanitize'
     ) );
 
@@ -141,15 +134,13 @@ function wordpress_class_customize_register( $wp_customize ) {
         ));
 
     // site introduction title setting added
-
-$wp_customize->add_setting('site_introduction_title_settinng',array(
+    $wp_customize->add_setting('site_introduction_title_settinng',array(
         'default'            => '',
         'capability'         => 'edit_theme_options',
         'sanitize_callback'  => 'blog_text_sanitize'
     ) );
 
     // site introduction title control added
-
     $wp_customize->add_control('site_introduction_title_settinng', array(
         'type'         => 'text',
         'label'        => __('Introduction Title', 'blog'),
@@ -159,7 +150,6 @@ $wp_customize->add_setting('site_introduction_title_settinng',array(
         ));
 
     // site introduction enable/disable button setting added
-
     $wp_customize->add_setting('site_introduction_enable_btn_settinng',array(
         'default'            => '',
         'capability'         => 'edit_theme_options',
@@ -174,25 +164,112 @@ $wp_customize->add_setting('site_introduction_title_settinng',array(
         'section'      => 'blog_introduction_section',
         'setting'      => 'site_introduction_settinng',
         'priority'     => 10
-        ));
-
-
-
-
-
-    /*$wp_customize->add_setting('blog_header_checkbox_setting',array(
-        'default'   => '',
-        'capability' => 'edit_theme_options',
-        'sanitize_callback'  => 'blog_sanitize_checkbox'
     ) );
 
-    $wp_customize->add_control('blog_header_checkbox_setting', array(
-        'type'    => 'checkbox',
-        'label'   => esc_html__('Checkbox', 'blog'),
-        'section' => 'blog_header_section',
-        'settings' => 'blog_header_checkbox_setting',
-        'priority' => 5
-    ));*/
+    $wp_customize->add_setting('site_introduction_link_setting',array(
+       'default'            => 'http://',
+        'capability'        => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control('site_introduction_link_setting',array(
+        'label'   => __('Url','blog'),
+        'section' => 'blog_introduction_section',
+        'setting' => 'site_introduction_link_setting'
+    ) );
+
+    $wp_customize->add_setting('site_introduction_color_setting',array(
+        'default'            => '#eee',
+        'capability'        => 'edit_theme_options',
+        'sanitize_callback' => 'blog_hex_sanitize_color',
+        'sanitize_js_callback' => 'blog_escaping_color_sanitize'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'site_introduction_color_setting',array(
+        'label'   => __('Color','blog'),
+        'section' => 'blog_introduction_section',
+        'setting' => 'site_introduction_color_setting'
+    ) ) );
+
+    $wp_customize->add_setting('site_introduction_background_color_setting',array(
+        'default'            => '#eee',
+        'capability'        => 'edit_theme_options',
+        'sanitize_callback' => 'blog_hex_sanitize_color',
+        'sanitize_js_callback' => 'blog_escaping_color_sanitize'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'site_introduction_background_color_setting',array(
+        'label'   => __('Back Ground Color','blog'),
+        'section' => 'blog_introduction_section',
+        'setting' => 'site_introduction_background_color_setting'
+    ) ) );
+
+    $wp_customize->add_section('blog_slider_section',array(
+        'title'       => esc_html__('Slider','blog'),
+        'description' => esc_html__('THis is Slider section','blog'),
+        'priority'    => 5
+    ) );
+
+    $wp_customize->add_setting('blog_slider_title_setting1',array(
+        'capability'        => 'edit_theme_options',
+        'sanitize_callback' => 'blog_text_sanitize',
+    ));
+
+    $wp_customize->add_control('blog_slider_title_setting1',array(
+       'label'           => __('Title 1'),
+        'section'        => 'blog_slider_section',
+        'setting'        => 'blog_slider_title_setting1'
+    ));
+
+    $wp_customize->add_setting('blog_slider_setting1',array(
+        'capability'        => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'blog_slider_setting1',array(
+        'label'   => __('Image 1','blog'),
+        'section' => 'blog_slider_section',
+        'setting' => 'blog_slider_setting1'
+    ) ) );
+
+
+    $wp_customize->add_setting('blog_slider_title_setting2',array(
+        'capability'        => 'edit_theme_options',
+        'sanitize_callback' => 'blog_text_sanitize',
+    ));
+
+    $wp_customize->add_control('blog_slider_title_setting2',array(
+        'label'           => __('Title 2'),
+        'section'        => 'blog_slider_section',
+        'setting'        => 'blog_slider_title_setting1'
+    ));
+
+    $wp_customize->add_setting('blog_slider_setting2',array(
+        'capability'        => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'blog_slider_setting2',array(
+        'label'   => __('Image 2','blog'),
+        'section' => 'blog_slider_section',
+        'setting' => 'blog_slider_setting2'
+    ) ) );
+
+
+
+
+
+
+
+    function blog_hex_sanitize_color($color)
+    {
+        return sanitize_hex_color($color);
+    }
+
+    function blog_escaping_color_sanitize($input)
+    {
+        return esc_attr($input);
+    }
 
 
 
