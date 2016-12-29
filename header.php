@@ -142,28 +142,12 @@ wp_head();
                                        href="<?php echo esc_url(get_template_directory_uri()); ?>/#">Navigation</a>
                                 </div>
                                 <div id="navbar" class="navbar-collapse collapse">
-                                    <ul class="nav navbar-nav">
-                                        <li class="active"><a
-                                                    href="<?php echo esc_url(get_template_directory_uri()); ?>/index.php">Home</a>
-                                        </li>
-                                        <li><a href="<?php echo esc_url(get_template_directory_uri()); ?>/#">About</a>
-                                        </li>
-                                        <li><a href="<?php echo esc_url(get_template_directory_uri()); ?>/view.php">Contact</a>
-                                        </li>
-                                        <li class=""><a
-                                                    href="<?php echo esc_url(get_template_directory_uri()); ?>/normal.php">Home</a>
-                                        </li>
-                                        <li><a href="<?php echo esc_url(get_template_directory_uri()); ?>/#">About</a>
-                                        </li>
-                                        <li><a href="<?php echo esc_url(get_template_directory_uri()); ?>/#">Contact</a>
-                                        </li>
-                                        <li class=""><a href="<?php echo esc_url(get_template_directory_uri()); ?>/#">Home</a>
-                                        </li>
-                                        <li><a href="<?php echo esc_url(get_template_directory_uri()); ?>/#">About</a>
-                                        </li>
-                                        <li><a href="<?php echo esc_url(get_template_directory_uri()); ?>/#">Contact</a>
-                                        </li>
-                                    </ul>
+                                    <?php
+                                    wp_nav_menu(array(
+                                    'theme_location' => 'primary',
+                                    'menu_class' => 'nav navbar-nav'
+                                        ));
+                                        ?>
                                 </div>
                                 <!--/.nav-collapse --> <!--/.container-fluid -->
                             </nav>

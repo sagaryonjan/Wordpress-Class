@@ -113,6 +113,73 @@ function wordpress_class_customize_register( $wp_customize ) {
     ) );
 
 
+    // site introduction add section
+
+    $wp_customize->add_section('blog_introduction_section',array(
+        'title'        => esc_html__('Site Introduction','blog'),
+        'description' => esc_html__('THis is header section','blog'),
+        'priority'    => 5
+    ) );
+
+
+    //site introduction add setting
+
+    $wp_customize->add_setting('site_introduction_settinng',array(
+        'default'   => '',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback'  => 'blog_text_sanitize'
+    ) );
+
+    // site introduction add control
+
+    $wp_customize->add_control('site_introduction_settinng', array(
+        'type'         => 'textarea',
+        'label'        => __('Introduction Details'),
+        'section'      => 'blog_introduction_section',
+        'setting'      => 'site_introduction_settinng',
+        'priority'     => 6
+        ));
+
+    // site introduction title setting added
+
+$wp_customize->add_setting('site_introduction_title_settinng',array(
+        'default'            => '',
+        'capability'         => 'edit_theme_options',
+        'sanitize_callback'  => 'blog_text_sanitize'
+    ) );
+
+    // site introduction title control added
+
+    $wp_customize->add_control('site_introduction_title_settinng', array(
+        'type'         => 'text',
+        'label'        => __('Introduction Title', 'blog'),
+        'section'      => 'blog_introduction_section',
+        'setting'      => 'site_introduction_settinng',
+        'priority'     => 5
+        ));
+
+    // site introduction enable/disable button setting added
+
+    $wp_customize->add_setting('site_introduction_enable_btn_settinng',array(
+        'default'            => '',
+        'capability'         => 'edit_theme_options',
+        'sanitize_callback'  => 'blog_text_sanitize'
+    ) );
+
+    // site introduction enable/disable button control added
+
+    $wp_customize->add_control('site_introduction_enable_btn_settinng', array(
+        'type'         => 'checkbox',
+        'label'        => __('Enable / disable Introduction Section', 'blog'),
+        'section'      => 'blog_introduction_section',
+        'setting'      => 'site_introduction_settinng',
+        'priority'     => 10
+        ));
+
+
+
+
+
     /*$wp_customize->add_setting('blog_header_checkbox_setting',array(
         'default'   => '',
         'capability' => 'edit_theme_options',

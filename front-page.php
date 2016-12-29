@@ -25,13 +25,21 @@ get_header();
     <li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg" alt="Slider Img" /><p>asfjhflkahfaljk</p></li>
   </ul>
 </div>
+
 <div class="intro_site">
-<h2>Introduction</h2>
+<?php
+if (get_theme_mod('site_introduction_enable_btn_settinng') == 1){
+	?>
+<h2><?php echo get_theme_mod('site_introduction_title_settinng');?></h2>
 <div class="col-lg-12">
 <div class="intro_main_div">
-<p>With so many pressing political, security, and humanitarian challenges, the voices of Iraq’s marginalized communities are often not heard,” NDI’s Iraq Country Director, Ancuta Hansen, explained. “Empowering politically-minded youth from within these very communities can fill this void and help pave the way for national reconciliation. With so many pressing political, security, and humanitarian challenges, the voices of Iraq’s marginalized communities are often not heard,” NDI’s Iraq Country Director, Ancuta Hansen, explained. “Empowering politically-minded youth from within these very communities can fill this void and help pave the way for national reconciliation.</p>
+<p><?php echo get_theme_mod('site_introduction_settinng');?></p>
+<a href="#" style="background-color:#5bc0de; padding:3px 15px; border-radius:5px; color:white;">Read More...</a>
 </div>
 </div>
+<?php
+}
+?>
 </div>
 <div class="recent_feature_all">
 <h2>Recent Featured Stories</h2>
