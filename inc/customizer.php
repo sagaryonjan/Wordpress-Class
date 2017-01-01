@@ -420,6 +420,49 @@ function wordpress_class_customize_register( $wp_customize ) {
         'priority'  => 20
         ));
 
+    //this section add section
+    $wp_customize->add_section('blog_this_section_add_section', array(
+        'title' => __('Add This Section', 'blog'),
+        'description' => __('This Section Here', 'blog'),
+        'priority' => 21
+        ));
+
+    //this section add seting
+    $wp_customize->add_setting('blog_this_section_setting', array(
+        'default' => '',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'section_sanitize_callback'
+        ));
+
+    //his section add control
+    $wp_customize->add_control('blog_this_section_setting', array(
+        'label' => __('this section title', 'blog'),
+        'type' => 'text',
+        'section' => 'blog_this_section_add_section',
+        'setting' => 'blog_this_section_setting',
+        'priority' => 21
+        ));
+
+    //this section add setting description
+
+    $wp_customize->add_setting('blog_desc_setting', array(
+        'default' => 'No',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'section_sanitize_callback'
+        ));
+
+    //this section add control
+    $wp_customize->add_control('blog_desc_setting', array(
+        'label' => __('Link Page'),
+        //'type' => 'dropdown-pages',
+
+        'section' => 'blog_this_section_add_section',
+        'setting' => 'blog_desc_setting',
+        'type' => 'select',
+        'choices' => array('No' => 'No', 'Yes' => 'Yes'),
+        ));
+
+
 
 
 
@@ -453,7 +496,11 @@ function wordpress_class_customize_register( $wp_customize ) {
         return esc_attr($input);
     }
 
-
+    function section_sanitize_callback($this_section)
+    {
+        global $allowedtags;
+        return wp_kses($this_section, $allowedtags);
+    }
 
     function blog_text_sanitize($string)
     {
