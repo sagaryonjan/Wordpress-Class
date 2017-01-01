@@ -12,12 +12,16 @@ get_header();
             <div class="leftbar">
                 <div class="photo_slider">
                     <ul class="bxslider">
-                        <li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/bg.gif"
-                                 alt="Slider Img"/>
-                            <p>asfjhflkahfaljk</p></li>
-                        <li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg"
-                                 alt="Slider Img"/>
-                            <p>asfjhflkahfaljk</p></li>
+                        <?php
+                        for ($i = 1; $i < 5; $i++) {
+
+                            $slider_image = get_theme_mod('blog_slider_setting'.$i);
+                            $slider_title = get_theme_mod('blog_slider_title_setting'.$i);
+                        ?>
+                            <li><img src="<?php echo $slider_image; ?>" alt="Slider Img"/>
+                                <p><?php echo $slider_title; ?></p>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
 
@@ -27,9 +31,9 @@ get_header();
                         <h2><?php echo get_theme_mod('site_introduction_title_settinng'); ?></h2>
                         <div class="col-lg-12">
                             <div class="intro_main_div" style="
-                                    background-color: <?php echo get_theme_mod('site_introduction_background_color_setting')?>;
-                                    color:<?php echo get_theme_mod('site_introduction_color_setting')?> ">
-                                <p ><?php echo get_theme_mod('site_introduction_settinng'); ?></p>
+                                    background-color: <?php echo get_theme_mod('site_introduction_background_color_setting') ?>;
+                                    color:<?php echo get_theme_mod('site_introduction_color_setting') ?> ">
+                                <p><?php echo get_theme_mod('site_introduction_settinng'); ?></p>
                                 <a href="<?php echo get_theme_mod('site_introduction_link_setting'); ?>"
                                    style="background-color:#5bc0de; padding:3px 15px; border-radius:5px; color:white;">Read
                                     More...</a>

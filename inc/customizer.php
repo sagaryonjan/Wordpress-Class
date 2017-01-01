@@ -210,56 +210,29 @@ function wordpress_class_customize_register( $wp_customize ) {
         'priority'    => 5
     ) );
 
-    $wp_customize->add_setting('blog_slider_title_setting1',array(
-        'capability'        => 'edit_theme_options',
-        'sanitize_callback' => 'blog_text_sanitize',
-    ));
+    for($i=1; $i < 5; $i++){
+        $wp_customize->add_setting('blog_slider_title_setting'.$i,array(
+            'capability'        => 'edit_theme_options',
+            'sanitize_callback' => 'blog_text_sanitize',
+        ));
 
-    $wp_customize->add_control('blog_slider_title_setting1',array(
-       'label'           => __('Title 1'),
-        'section'        => 'blog_slider_section',
-        'setting'        => 'blog_slider_title_setting1'
-    ));
+        $wp_customize->add_control('blog_slider_title_setting'.$i,array(
+           'label'           => __('Title ','blog').$i,
+            'section'        => 'blog_slider_section',
+            'setting'        => 'blog_slider_title_setting1'
+        ));
 
-    $wp_customize->add_setting('blog_slider_setting1',array(
-        'capability'        => 'edit_theme_options',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
+        $wp_customize->add_setting('blog_slider_setting'.$i,array(
+            'capability'        => 'edit_theme_options',
+            'sanitize_callback' => 'esc_url_raw',
+        ));
 
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'blog_slider_setting1',array(
-        'label'   => __('Image 1','blog'),
-        'section' => 'blog_slider_section',
-        'setting' => 'blog_slider_setting1'
-    ) ) );
-
-
-    $wp_customize->add_setting('blog_slider_title_setting2',array(
-        'capability'        => 'edit_theme_options',
-        'sanitize_callback' => 'blog_text_sanitize',
-    ));
-
-    $wp_customize->add_control('blog_slider_title_setting2',array(
-        'label'           => __('Title 2'),
-        'section'        => 'blog_slider_section',
-        'setting'        => 'blog_slider_title_setting1'
-    ));
-
-    $wp_customize->add_setting('blog_slider_setting2',array(
-        'capability'        => 'edit_theme_options',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
-
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'blog_slider_setting2',array(
-        'label'   => __('Image 2','blog'),
-        'section' => 'blog_slider_section',
-        'setting' => 'blog_slider_setting2'
-    ) ) );
-
-
-
-
-
-
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'blog_slider_setting'.$i,array(
+            'label'   => __('Image','blog').$i,
+            'section' => 'blog_slider_section',
+            'setting' => 'blog_slider_setting'.$i
+        ) ) );
+    }
 
     function blog_hex_sanitize_color($color)
     {
@@ -270,8 +243,6 @@ function wordpress_class_customize_register( $wp_customize ) {
     {
         return esc_attr($input);
     }
-
-
 
     function blog_text_sanitize($string)
     {
@@ -286,14 +257,6 @@ function wordpress_class_customize_register( $wp_customize ) {
         else
             return 0;
     }
-
-
-
-
-
-
-
-
 
 }
 add_action( 'customize_register', 'wordpress_class_customize_register' );
