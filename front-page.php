@@ -105,9 +105,9 @@ get_header();
                         <div class="recent_blog_title">
                             <h2>DemWorks.org Recent Blog Posts</h2>
                         </div>
-                        <button class="tiny" id="ndi_act_btn"> Ndi Activities <i class="fa fa-list"></i></button>
-                        <button class="tiny" id="ndi_track_btn">Track Records <i class="fa fa-bars"></i></button>
-                        <button class="tiny" id="ndi_service_btn">Services <i class="fa fa-list"></i></button>
+                        <button class="tiny" id="ndi_act_btn"> Taja Khabar <i class="fa fa-list"></i></button>
+                        <button class="tiny" id="ndi_track_btn">Lokpriya Khabar <i class="fa fa-bars"></i></button>
+                        <button class="tiny" id="ndi_service_btn">Other Kahbar <i class="fa fa-list"></i></button>
                         <div class="recent_blog_main" id="ndi_act_main_div">
                             <div class="col-lg-12">
                                 <ul class="clearfix">
@@ -348,20 +348,7 @@ get_header();
                             </div>
                         </ul>
                     </div>
-                    <div class="about_ndi">
-                        <h3>About NDI</h3>
-                        <div class="ndi_main_section">
-                            <p>“This battle will liberate us; we want to be involved in the decision making process.
-                                Women will not continue to be used as fillers,” declared Socorro Torres, coordinator of
-                                the Honduras Interparty Women’s Network (Red de Mujeres Interpartidarias de Honduras, or
-                                the Network). Torres’s comments were in response to the historic
-
-                            </p>
-                            <div class="read_more_a_n">
-                                <a href="#">Read More <i class="fa fa-share"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php about_ndi();?>
                     <div class="learn_more">
                         <h3>Learn More</h3>
                         <div class="learn_main_section">
