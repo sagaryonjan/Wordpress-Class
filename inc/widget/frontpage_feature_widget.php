@@ -1,0 +1,5 @@
+<?php
+/**
+ * Front Page Widget
+ */
+

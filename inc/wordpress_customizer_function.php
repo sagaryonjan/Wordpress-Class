@@ -42,14 +42,21 @@ function blog_header()
 {
     $site_description = get_theme_mod('blog_header_textarea_setting');
     $btn_txt = get_theme_mod('blog_header_btnText_setting');
+
     ?>
     <div class="row">
+
         <?php if (get_theme_mod('blog_header_checkbox_setting') == 1): ?>
+        <?php if(get_theme_mod('blog_desc_radio_setting', 'string1') == 'string1'){?>
+
             <div class="col-lg-3">
                 <div class="logo">
                     <?php blog_custom_logo(); ?>
                 </div>
             </div>
+
+            <?php } ?>
+
             <div class="col-lg-7">
                 <?php if (get_theme_mod('blog_textarea_enable_setting') == 1): ?>
                     <div class="welcome_text">

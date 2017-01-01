@@ -15,6 +15,27 @@ function wordpress_class_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
+	class HeadingTitle extends WP_Customize_Control{
+
+	    public function render_content()
+        {
+            if(!empty($this->label)):
+            ?>
+            <style>
+                h1 {
+                    color: red;
+                    background-color: gray;
+                }
+            </style>
+
+           <h1><?php echo esc_html($this->label)?></h1>
+     <?php
+        endif;
+        }
+
+    }
+
+
 	/*$wp_customize->add_panel('blog_header',array(
         'title'  => esc_html__('Blog'),
         'priority'=>5
@@ -211,6 +232,16 @@ function wordpress_class_customize_register( $wp_customize ) {
     ) );
 
     for($i=1; $i < 5; $i++) {
+        $wp_customize->add_setting('blog_heading_title_setting' . $i, array(
+            'capability' => 'edit_theme_options',
+        ));
+
+        $wp_customize->add_control(new HeadingTitle($wp_customize, 'blog_heading_title_setting' . $i, array(
+            'label' => __('Slider Title ', 'blog') . $i,
+            'section' => 'blog_slider_section',
+            'setting' => 'blog_heading_title_setting'.$i
+        ) ) );
+
         $wp_customize->add_setting('blog_slider_title_setting' . $i, array(
             'capability' => 'edit_theme_options',
             'sanitize_callback' => 'blog_text_sanitize',
@@ -219,7 +250,7 @@ function wordpress_class_customize_register( $wp_customize ) {
         $wp_customize->add_control('blog_slider_title_setting' . $i, array(
             'label' => __('Title ', 'blog') . $i,
             'section' => 'blog_slider_section',
-            'setting' => 'blog_slider_title_setting1'
+            'setting' => 'blog_slider_title_setting'.$i
         ));
 
         $wp_customize->add_setting('blog_slider_setting' . $i, array(
@@ -432,19 +463,41 @@ function wordpress_class_customize_register( $wp_customize ) {
     //this section add control
     $wp_customize->add_control('blog_desc_setting', array(
         'label' => __('Link Page'),
-        //'type' => 'dropdown-pages',
-
         'section' => 'blog_this_section_add_section',
         'setting' => 'blog_desc_setting',
         'type' => 'select',
-        'choices' => array('No' => 'No', 'Yes' => 'Yes'),
+        'choices' => array(
+                'No' => 'No',
+               'Yes' => 'Yes'
+        ),
         ));
 
+    $wp_customize->add_setting('blog_desc_radio_setting', array(
+        'default'           => 1,
+        'capability'        => 'edit_theme_options',
+        'sanitize_callback' => 'section_radio_sanitize_callback'
+    ));
 
+    //this section add control
+    $wp_customize->add_control('blog_desc_radio_setting', array(
+        'label' => __('Link Page'),
+        'section' => 'blog_this_section_add_section',
+        'setting' => 'blog_desc_setting',
+        'type' => 'radio',
+        'choices' => array(
+            'string1' => esc_html__('Title 1'),
+            'string2' => esc_html__('Title 2'),
+            'string4' => esc_html__('Title 3'),
+            'string5' => esc_html__('Title 4')
+        )
+    ));
 
-
-
-
+ function section_radio_sanitize_callback($value){
+     if(! in_array($value, array('string1','string2','string4','string5'))){
+         return 'string1';
+     }
+     return $value;
+ }
 
     //about ndi sanitize callback function
     function blog_about_sanitize($about_title)

@@ -15,13 +15,15 @@ get_header();
                         <?php
                         for ($i = 1; $i < 5; $i++) {
 
-                            $slider_image = get_theme_mod('blog_slider_setting'.$i);
-                            $slider_title = get_theme_mod('blog_slider_title_setting'.$i);
-                        ?>
-                            <li><img src="<?php echo $slider_image; ?>" alt="Slider Img"/>
-                                <p><?php echo $slider_title; ?></p>
-                            </li>
-                        <?php } ?>
+                            $slider_image = get_theme_mod('blog_slider_setting' . $i);
+                            $slider_title = get_theme_mod('blog_slider_title_setting' . $i);
+                            if (!empty($slider_image)) {
+                                ?>
+                                <li><img src="<?php echo $slider_image; ?>" alt="Slider Img"/>
+                                    <p><?php echo $slider_title; ?></p>
+                                </li>
+                            <?php }
+                        } ?>
                     </ul>
                 </div>
 
@@ -348,7 +350,7 @@ get_header();
                             </div>
                         </ul>
                     </div>
-                    <?php about_ndi();?>
+                    <?php about_ndi(); ?>
                     <div class="learn_more">
                         <h3>Learn More</h3>
                         <div class="learn_main_section">
