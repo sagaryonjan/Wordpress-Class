@@ -142,3 +142,6 @@ require get_template_directory() . '/inc/wordpress_class_function.php';
 //get tempate
 require get_template_directory() . '/inc/wordpress_customizer_function.php';
 
+//include for widget function
+require get_template_directory() . '/inc/wordpress_widget_include.php';
+
