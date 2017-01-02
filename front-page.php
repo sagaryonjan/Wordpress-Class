@@ -97,7 +97,10 @@ get_header();
                         <div class="r_all_details">
                             <a href="#">A Bipartisan Celebration of Democracy</a>
                         </div>
+
+
                     </div>
+                    <a href="#" style="background-color:#5bc0de; color:white; padding:2px 15px; border-radius:5px;">View All Stories</a>
                     <div class="clear"></div>
                 </div>
                 <div class="recent_blog">
