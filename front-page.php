@@ -27,24 +27,12 @@ get_header();
                     </ul>
                 </div>
 
-                <div class="intro_site">
-                    <?php
-                    if (get_theme_mod('site_introduction_enable_btn_settinng') == 1) { ?>
-                        <h2><?php echo get_theme_mod('site_introduction_title_settinng'); ?></h2>
-                        <div class="col-lg-12">
-                            <div class="intro_main_div" style="
-                                    background-color: <?php echo get_theme_mod('site_introduction_background_color_setting') ?>;
-                                    color:<?php echo get_theme_mod('site_introduction_color_setting') ?> ">
-                                <p><?php echo get_theme_mod('site_introduction_settinng'); ?></p>
-                                <a href="<?php echo get_theme_mod('site_introduction_link_setting'); ?>"
-                                   style="background-color:#5bc0de; padding:3px 15px; border-radius:5px; color:white;">Read
-                                    More...</a>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                    ?>
-                </div>
+                <?php if ( is_active_sidebar( 'feature_post' ) ) : ?>
+
+                        <?php dynamic_sidebar( 'feature_post' ); ?>
+
+                <?php endif; ?>
+
                 <div class="recent_feature_all">
                     <h2>Recent Featured Stories</h2>
                     <div class="col-lg-6 col-sm-6">
