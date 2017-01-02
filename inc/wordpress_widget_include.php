@@ -5,4 +5,4 @@
 
 require get_template_directory().'/inc/widget/frontpage_feature_widget.php';
 
-require get_template_directory().'/inc/widget/frontpage_sidebar_widget.php';
+//require get_template_directory().'/inc/widget/frontpage_sidebar_widget.php';
