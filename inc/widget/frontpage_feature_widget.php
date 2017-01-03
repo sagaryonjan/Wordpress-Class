@@ -1,21 +1,18 @@
-
 <?php
-
 /**
  * Front Page Widget
  */
-
-add_action('widgets_init', function () {
-    register_widget('featured_widget');
+add_action( 'widgets_init', function(){
+    register_widget( 'frontpage_featured_widget' );
 });
 
 // register feature_widget widget
-function register_featured_widget()
+function register_frontpage_featured_widget()
 {
-    register_widget('featured_widget');
+    register_widget('frontpage_featured_widget');
 }
 
-class Featured_widget extends WP_Widget
+class Frontpage_featured_widget extends WP_Widget
 {
 
     /**
@@ -133,75 +130,3 @@ class Featured_widget extends WP_Widget
     }
 
 }
-
-?>
-
-
-
-
-
-<?php
-function register_this_section(){
-    register_widget('this_section');
-}
-
-add_action('widget_init', function(){
-    register_widget('this_section');
-});
-
-class This_section extends WP_Widget{
-
-    public function __construct(){
-        $widget_ops = array(
-            'classname' => 'this_section',
-            'description' => __('Please Add This In Feauture Post', 'blof')
-            );
-        parent::__construct('this_section', __('This Section Widget', 'blog'), $widget_ops);
-    
-}
-
-public function form($form_section){
-    $default = [];
-    $default['title'] = '';
-    $default['description'] = '';
-    $default['link'] = '';
-
-    $form_section = wp_parse_args( (array) $form_section, $default);
-    $title = $form_section['title'];
-    $description = $form_section['description'];
-    $link = $form_section['link'];
-
-    ?>
-   <p> <label for="<?php $this->get_field_id('title')?>"><?php esc_html_e('title', 'blog')?></label>
-    <input type="text" name="<?php echo $this->get_field_name('title')?>" id="<?php $this->get_field_id('title')?>" value="<?php echo $title;?>"></p>
-
-    <p> <label for="<?php $this->get_field_id('description')?>"><?php esc_html_e('description', 'blog')?></label>
-    <input type="text" name="<?php echo $this->get_field_name('description')?>" id="<?php $this->get_field_id('description')?>" value="<?php echo $description;?>"></p>
-
-    <p> <label for="<?php $this->get_field_id('link')?>"><?php esc_html_e('link', 'blog')?></label>
-    <input type="text" name="<?php echo $this->get_field_name('link')?>" id="<?php $this->get_field_id('link')?>" value="<?php echo $link;?>"></p>
-
-
-
-    <?php
-}
-
-    public function update($new_test, $old_test){
-        $data = $old_test;
-        $data['title'] = sanitize_text_field($new_test['title']);
-        $data['description'] = sanitize_text_field($new_test['description']);
-        $data['link'] = sanitize_text_field($new_test['link']);
-        return $data;
-    }
-public function widgets($args){
-extract($args);
-extract($data);
-
-}
-}
-
-?>
-
-
-
-

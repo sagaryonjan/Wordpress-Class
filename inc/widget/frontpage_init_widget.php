@@ -1,7 +1,0 @@
-<?php
-/*
- * Widget Initializiting
- * */
-
-
-?>
