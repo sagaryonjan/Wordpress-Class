@@ -109,6 +109,16 @@ function wordpress_class_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'wordpress_class_scripts' );
 
+
+/**
+ * Image Uploader
+ */
+add_action('admin_enqueue_scripts', 'blog_image_uploader');
+function blog_image_uploader() {
+    wp_enqueue_media();
+    wp_enqueue_script('blog-widget-image-upload', get_template_directory_uri() . '/js/image-uploader.js', false, '20150309', true);
+}
+
 /**
  * Implement the Custom Header feature.
  */

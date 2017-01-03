@@ -4,3 +4,5 @@
  */
 
 require get_template_directory().'/inc/widget/frontpage_feature_widget.php';
+
+require get_template_directory().'/inc/widget/frontpage_site_title_widget.php';
