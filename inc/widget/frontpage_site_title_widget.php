@@ -4,17 +4,18 @@
  * Front Page Widget
  */
 
+
 add_action('widgets_init', function () {
-    register_widget('featured_widget');
+    register_widget('site_title_widget');
 });
 
 // register feature_widget widget
-function register_featured_widget()
+function register_site_title_widget()
 {
-    register_widget('featured_widget');
+    register_widget('site_title_widget');
 }
 
-class Featured_widget extends WP_Widget
+class Site_title_widget extends WP_Widget
 {
 
     /**
@@ -23,11 +24,11 @@ class Featured_widget extends WP_Widget
     public function __construct()
     {
         $widget_ops = array(
-            'classname' => 'featured_widget',
-            'description' => esc_html__('Please Add THis in Featured Post', 'blog'),
+            'classname' => 'site_title_widget',
+            'description' => esc_html__('Please Add THis in Site Post', 'blog'),
         );
 
-        parent::__construct('featured_widget', esc_html__('Featured Widget', 'blog'), $widget_ops);
+        parent::__construct('site_title_widget', esc_html__('Site Title Widget', 'blog'), $widget_ops);
     }
 
     /**
