@@ -33,66 +33,7 @@ get_header();
 
                 <?php endif; ?>
 
-                <div class="recent_feature_all">
-                    <h2>Recent Featured Stories</h2>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="r_i_all">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
-                        </div>
-                        <div class="r_all_details">
-                            <a href="#">A Bipartisan Celebration of Democracy</a>
-                        </div>
-                    </div>
 
-                    <div class="col-lg-6">
-                        <div class="r_i_all">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
-                        </div>
-                        <div class="r_all_details">
-                            <a href="#">A Bipartisan Celebration of Democracy</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="r_i_all">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
-                        </div>
-                        <div class="r_all_details">
-                            <a href="#">A Bipartisan Celebration of Democracy</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="r_i_all">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
-                        </div>
-                        <div class="r_all_details">
-                            <a href="#">A Bipartisan Celebration of Democracy</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="r_i_all">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
-                        </div>
-                        <div class="r_all_details">
-                            <a href="#">A Bipartisan Celebration of Democracy</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="r_i_all">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
-                        </div>
-                        <div class="r_all_details">
-                            <a href="#">A Bipartisan Celebration of Democracy</a>
-                        </div>
-
-
-                    </div>
-                    <a href="#" style="background-color:#5bc0de; color:white; padding:2px 15px; border-radius:5px;">View All Stories</a>
-                    <div class="clear"></div>
-                </div>
                 <div class="recent_blog">
                     <div class="col-lg-12">
                         <div class="recent_blog_title">
