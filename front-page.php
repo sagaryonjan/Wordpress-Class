@@ -285,32 +285,11 @@ get_header();
                         <h3><a href="#">DemoWorks.org</a></h3>
                         <p>A Blog Of The National Democratic Institute</p>
                     </div>
-                    <div class="twitter_div">
-                        <h3>NDI On Twitter</h3>
-                        <div class="twitter_main_box">
-                            <p>“This battle will liberate us; we want to be involved in the decision making process.
-                                Women will not continue to be used as fillers,” declared Socorro Torres, coordinator of
-                                the Honduras Interparty Women’s Network (Red de Mujeres Interpartidarias de Honduras, or
-                                the Network). Torres’s comments were in response to the historic ratification of a pact
-                                between members of Honduras’s leading political parties, affirming women’s equality in
-                                political participation.
-
-                                On October, 20, 2016, party leaders and aspiring presidential candidates from seven of
-                                Honduras’s ten political parties met in the Honduran capital of Tegucigalpa to ratify
-                                the “Political Parity and Alternation Pact” (Pacto Político por la Paridad y la
-                                Alternancia). The pact commits aspiring presidential candidates to push their parties to
-                                place women in top positions of party lists, ensuring the application of the principle
-                                of parity (50 percent women and 50 percent men on party lists) and mechanisms for
-                                alteration (rotating between female and male candidates on the ballot). Alternation
-                                allows women and men to have an equal chance of being seen on the ballot as compared to
-                                ballots that list male candidates first.
-
-                                “This battle will liberate us; we want to be involved in the decision making process.
-                                Women will not continue to be used as fillers” - Socorro Torres, coordinator of the
-                                Honduras Interparty Women’s Network
-                            </p>
-                        </div>
-                    </div>
+                    <?php
+                    if(is_active_sidebar('feature_post')){
+                        echo dynamic_sidebar('feature_post');
+                    }
+                    ?>
                     <div class="inthis_section">
                         <h3>In This Section</h3>
                         <ul class="clearfix">
