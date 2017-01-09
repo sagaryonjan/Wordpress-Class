@@ -6,7 +6,6 @@
  *
  * @package Wordpress_Class
  */
-
 get_header(); ?>
 
 	<div id="primary" class="content-area">

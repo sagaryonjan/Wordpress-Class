@@ -73,9 +73,20 @@ function wordpress_class_setup() {
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	add_theme_support('woocommerce');
 }
 endif;
 add_action( 'after_setup_theme', 'wordpress_class_setup' );
+
+/*For Debugging*/
+
+function debug($data){
+    print_r($data);
+    die;
+}
+
+
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.

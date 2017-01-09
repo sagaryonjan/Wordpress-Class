@@ -7,6 +7,8 @@
  * @package Wordpress_Class
  */
 
+blog_news_view_count(get_the_ID());
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

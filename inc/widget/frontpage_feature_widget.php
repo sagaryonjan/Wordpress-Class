@@ -1,7 +1,7 @@
 <?php
 /**
  * Front Page Widget
- */
+*/
 add_action( 'widgets_init', function(){
     register_widget( 'frontpage_featured_widget' );
 });
@@ -83,7 +83,6 @@ class Frontpage_featured_widget extends WP_Widget
     public function update($new_instance, $old_instance)
     {
         $instance = $old_instance;
-
         $instance['head_title'] = sanitize_text_field($new_instance['head_title']);
         $instance['title'] = sanitize_text_field($new_instance['title']);
         $instance['description'] = sanitize_text_field($new_instance['description']);
@@ -124,8 +123,6 @@ class Frontpage_featured_widget extends WP_Widget
             }
             ?>
         </div>
-
-
         <?php
     }
 

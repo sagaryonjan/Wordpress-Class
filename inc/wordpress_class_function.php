@@ -47,6 +47,24 @@ if (!function_exists('blog_custom_logo')):
     }
 endif;
 
+if(!function_exists('blog_news_view_count')){
+
+    function blog_news_view_count($post_id){
+        $meta_key = 'blog_count_views';
+
+        $count = get_post_meta($post_id, $meta_key, true);
+
+        if($count == ''){
+              delete_post_meta($post_id, $meta_key);
+              add_post_meta($post_id, $meta_key, '0');
+        }else{
+            $count++;
+            update_post_meta($post_id,$meta_key, $count);
+        }
+    }
+}
+
+
 
 
 

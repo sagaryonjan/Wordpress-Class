@@ -90,13 +90,12 @@ class this_section extends WP_Widget{
         $get_featured_posts = new WP_Query(array(
             'posts_per_page' =>  3,
             'post_type'      =>  'post',
-            'category__in'   =>  $category
+           // 'category__in'   =>  $category,
+            'meta_key'       =>  'blog_count_views',
+            'orderBy'        =>  'meta_value'
         ));
-
-
         if ($category != '')
             $cat_slug = get_category($category);
-
 
 		?>
             <div class="recent_feature_all">

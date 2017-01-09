@@ -25,7 +25,6 @@ function about_ndi()
                         <div class="ndi_main_section">
                             <p style="color:<?php echo $description_color;?>;"> <?php echo $description;?>
                             <img src="<?php echo $background_image;?>">
-
                             </p>
                             <div class="read_more_a_n" style="background-color:<?php echo $read_more_btn_bg_color;?>;">
                                 <a href="#" style="color:<?php echo $read_more_btn_text_color;?>;"><?php echo $btn_text;?> <i class="fa fa-share"></i></a>
