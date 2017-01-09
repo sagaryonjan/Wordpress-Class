@@ -27,14 +27,7 @@ get_header();
                     </ul>
                 </div>
 
-                <?php if ( is_active_sidebar( 'feature_post' ) ) : ?>
-
-                        <?php dynamic_sidebar( 'feature_post' ); ?>
-
-                <?php endif; ?>
-
-
-                <div class="recent_blog">
+                   <div class="recent_blog">
                     <div class="col-lg-12">
                         <div class="recent_blog_title">
                             <h2>DemWorks.org Recent Blog Posts</h2>
@@ -231,53 +224,11 @@ get_header();
                         echo dynamic_sidebar('feature_post');
                     }
                     ?>
-                    <div class="inthis_section">
-                        <h3>In This Section</h3>
-                        <ul class="clearfix">
-                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                    Participation</a></li>
-                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                    Participation</a></li>
-                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                    Participation</a></li>
-                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                    Participation</a></li>
-                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                    Participation</a></li>
-                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                    Participation</a></li>
-                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                    Participation</a></li>
-                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                    Participation</a></li>
-                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                    Participation</a></li>
-                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                    Participation</a></li>
-
-
-                            <div class="view_all_insection">
-                                <a href="#">View All <i class="fa fa-share"></i></a>
-                            </div>
-                        </ul>
-                    </div>
+                    
                     <?php about_ndi(); ?>
-                    <div class="learn_more">
-                        <h3>Learn More</h3>
-                        <div class="learn_main_section">
-                            <ul class="clearfix">
-                                <li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
-                                </li>
-                                <li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
-                                </li>
-                                <li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
-                                </li>
-                                <li><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
+                   <?php
+                   dynamic_sidebar('learn_more');
+                   ?>
                     <br/>
                 </div>
             </div>

@@ -23,12 +23,14 @@ class this_section extends WP_Widget{
 		$data['description'] = '';
 		$data['status'] = '';
 		$data['category'] = '';
+		$data['image_url'] = '';
 
 		$instance = wp_parse_args((array)$instance, $data);
 		$title = $instance['title'];
 		$description = $instance['description'];
 		$status = $instance['status'];
 		$category = $instance['category'];
+		$image_url = $instance['image_url'];
 
 		?>
 		<p style="background-color:skyblue; color:white; font-weight:bold; text-transform:capitalize;">
@@ -50,6 +52,19 @@ class this_section extends WP_Widget{
 		<p>Status</p>
 		<input type="radio" value="0" <?php echo $status == 0?'checked=""':'';?> name="<?php echo $this->get_field_name('status');?>">Enable
 		<input type="radio" value="1" <?php echo $status == 1?'checked=""':''; ?>  name="<?php echo $this->get_field_name('status');?>">Disable
+		<p>
+            <label for="<?php echo $this->get_field_id($image_url); ?>"> <?php _e(' Image ', 'blog'); ?></label>
+
+            <?php
+            if ($instance[$image_url] != '') :
+                echo '<img id="' . $this->get_field_id($instance[$image_url] . 'preview') . '"src="' . $instance[$image_url] . '"style="max-width:250px;" /><br />';
+            endif;
+            ?>
+
+            <input type="hidden" class="widefat custom_media_url" id="<?php echo $this->get_field_id($image_url); ?>" name="<?php echo $this->get_field_name($image_url); ?>" value="<?php echo $instance[$image_url]; ?>" style="margin-top:5px;"/>
+
+            <input type="button" class="button button-primary custom_media_button" id="custom_media_button" name="<?php echo $this->get_field_name($image_url); ?>" value="<?php _e('Upload Image', 'rainbownews'); ?>" style="margin-top:5px; margin-right: 30px;" onclick="imageWidget.uploader( '<?php echo $this->get_field_id($image_url); ?>' ); return false;"/>
+        </p>
 		<?php
 	}
 
@@ -59,6 +74,7 @@ class this_section extends WP_Widget{
 		$instance['description'] = sanitize_text_field($new_instance['description']);
 		$instance['status'] = absint($new_instance['status']);
 		$instance['category'] = absint($new_instance['category']);
+		$instance[$image_url] = esc_url_raw($new_instance[$image_url]);
 
 		return $instance;
 	}
