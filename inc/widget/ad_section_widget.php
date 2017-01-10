@@ -82,7 +82,7 @@ public function widget($args, $instance){
                                 
                                <?php
                                	endwhile;
-                               	wp_reset_query();
+                               
 
                                
                                ?>

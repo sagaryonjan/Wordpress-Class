@@ -39,9 +39,19 @@ get_header();
                             <div class="col-lg-12">
                                 <ul class="clearfix">
                                     <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                            Participationdsgsdhgsdlkgjsdjlkdg </a></li>
-                                    <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
-                                            Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                                            Participationdsgsdhgsdlkgjsdjlkdg </a>
+                                            <div class="detailsfsfsd">sjsjgkksdkgsjlkg 
+                                            sglshgsl.g sghs. . shgdhgsdhgslgs shglksglksghslghs
+                                            sghlsdghsdlgh s
+                                            gsdgds</div>
+                                            </li>
+                                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                            Participationdsgsdhgsdlkgjsdjlkdg </a>
+                                            <div class="detailsfsfsd">sjsjgkksdkgsjlkg 
+                                            sglshgsl.g sghs. . shgdhgsdhgslgs shglksglksghslghs
+                                            sghlsdghsdlgh s
+                                            gsdgds</div>
+                                            </li>                                    
                                     <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
                                             Participationdsgsdhgsdlkgjsdjlkdg </a></li>
                                     <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
