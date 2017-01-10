@@ -98,26 +98,203 @@ class this_section extends WP_Widget{
             $cat_slug = get_category($category);
 
 		?>
-            <div class="recent_feature_all">
-                <h2>Recent Featured Stories</h2>
-                <?php while ($get_featured_posts->have_posts()):$get_featured_posts->the_post(); ?>
-                <div class="col-lg-6 col-sm-6">
-                    <div class="r_i_all">
-                        <?php the_post_thumbnail(); ?>
-                    </div>
-                    <div class="r_all_details">
-                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+        <div class="recent_blog">
+            <div class="col-lg-12">
+                <div class="recent_blog_title">
+                    <h2>DemWorks.org Recent Blog Posts</h2>
+                </div>
+                <button class="tiny" id="ndi_act_btn"> Taja Khabar <i class="fa fa-list"></i></button>
+                <button class="tiny" id="ndi_track_btn">Popular <i class="fa fa-bars"></i></button>
+                <button class="tiny" id="ndi_service_btn">Other Kahbar <i class="fa fa-list"></i></button>
+
+                <div class="recent_blog_main" id="ndi_act_main_div">
+                    <div class="col-lg-12">
+                        <ul class="clearfix">
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a>
+                                <div class="detailsfsfsd">sjsjgkksdkgsjlkg
+                                    sglshgsl.g sghs. . shgdhgsdhgslgs shglksglksghslghs
+                                    sghlsdghsdlgh s
+                                    gsdgds
+                                </div>
+                            </li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a>
+                                <div class="detailsfsfsd">sjsjgkksdkgsjlkg
+                                    sglshgsl.g sghs. . shgdhgsdhgslgs shglksglksghslghs
+                                    sghlsdghsdlgh s
+                                    gsdgds
+                                </div>
+                            </li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+                            <li class="fa fa-check" style="font-size:16px; color:green;"><a href="#">Citizen
+                                    Participationdsgsdhgsdlkgjsdjlkdg </a></li>
+
+                            <div class="view_all_insection">
+                                <a href="#">View All <i class="fa fa-share"></i></a>
+                            </div>
+                        </ul>
                     </div>
                 </div>
-            <?php  endwhile;  wp_reset_query();?>
 
-                <a <?php if (!empty($cat_slug->slug)) {
-                    ?>
-                    href="<?php echo site_url() . __('/category/', 'blog') . $cat_slug->slug; ?>" style="background-color:#5bc0de; color:white; padding:2px 15px; border-radius:5px;"
-                <?php } ?>>View All Stories</a>
-                <div class="clear"></div>
+                <div class="recent_blog_main" id="ndi_track_main_div">
+                    <?php
+
+                    $i = 1;
+                    if ($get_featured_posts->post_count > 0) {
+
+                        $get_featured_posts = new WP_Query(array(
+                            'posts_per_page' => 8,
+                            'post_type' => 'post',
+                            // 'category__in'   =>  $category,
+                            'meta_key' => 'blog_count_views',
+                            'orderBy' => 'meta_value'
+                        )); while ($get_featured_posts->have_posts()):$get_featured_posts->the_post(); ?>
+
+                            <div class="col-lg-4 col-md-6">
+                                <div class="track_title">
+                                    <i class="fa fa-check-square" aria-hidden="true"></i> <a
+                                            href="#"><?php the_title(); ?></a>
+                                </div>
+                                <?php if ($i == 1 || $i == 2): ?>
+                                    <div class="track_details">
+                                        <ul class="clearfix">
+                                            <li><?php the_content(); ?></li>
+                                        </ul>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                            <?php $i++;
+                        endwhile;
+                        wp_reset_query(); ?>
+                    <?php } ?>
+
+                    <!--    <div class="col-lg-4 col-md-6">
+                            <div class="track_title">
+                                <i class="fa fa-check-square" aria-hidden="true"></i> <a href="#">afasfsafsafasfasfasfsaf</a>
+                            </div>
+                            <div class="track_details">
+                                <ul class="clearfix">
+                                    <li>ssdfdsfsdfsdffafafaf afafafasf afaf afafkl a afagf afga aagfa afga asfhjsak
+                                        agf aakfga f afg akfjgasgsdgsdgsdgsgs
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="track_title">
+                                <i class="fa fa-check-square" aria-hidden="true"></i> <a href="#">afasfsafsafasfasfasfsaf</a>
+                            </div>
+                            <div class="track_details">
+                                <ul class="clearfix">
+                                    <li>ssdfdsfsdfsdffafafaf afafafasf afaf afafkl a afagf afga aagfa afga asfhjsak
+                                        agf aakfga f afg akfjgasgsdgsdgsdgsgs
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="track_title">
+                                <i class="fa fa-check-square" aria-hidden="true"></i> <a href="#">afasfsafsafasfasfasfsaf</a>
+                            </div>
+                            <div class="track_details">
+                                <ul class="clearfix">
+                                    <li>ssdfdsfsdfsdffafafaf afafafasf afaf afafkl a afagf afga aagfa afga asfhjsak
+                                        agf aakfga f afg akfjgasgsdgsdgsdgsgs
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="track_title">
+                                <i class="fa fa-check-square" aria-hidden="true"></i> <a href="#">afasfsafsafasfasfasfsaf</a>
+                            </div>
+                            <div class="track_details">
+                                <ul class="clearfix">
+                                    <li>ssdfdsfsdfsdffafafaf afafafasf afaf afafkl a afagf afga aagfa afga asfhjsak
+                                        agf aakfga f afg akfjgasgsdgsdgsdgsgs
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="track_title">
+                                <i class="fa fa-check-square" aria-hidden="true"></i> <a href="#">afasfsafsafasfasfasfsaf</a>
+                            </div>
+                            <div class="track_details">
+                                <ul class="clearfix">
+                                    <li>ssdfdsfsdfsdffafafaf afafafasf afaf afafkl a afagf afga aagfa afga asfhjsak
+                                        agf aakfga f afg akfjgasgsdgsdgsdgsgs
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+-->
+
+                </div>
+
+                <div class="recent_blog_main" id="ndi_service_main_div">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog_image">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+                        </div>
+                        <div class="blog_details">
+                            sfdsfdsfsd asfafafasf afasf
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog_image">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+                        </div>
+                        <div class="blog_details">
+                            sfdsfdsfsd asfafafasf afasf
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog_image">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/about.jpg">
+                        </div>
+                        <div class="blog_details">
+                            sfdsfdsfsd asfafafasf afasf
+                        </div>
+                    </div>
+                </div>
 
             </div>
+        </div>
 <?php
 
 // Reset Post Data

@@ -72,7 +72,6 @@ class news_section extends WP_Widget{
 		extract($instance);
 		$title = $instance['title'];
 		$category = $instance['category'];
-		echo $layout1 = $instance['layout1'];
 
 		$news_details = new WP_Query(array(
 			'post_per_page' => 3,
