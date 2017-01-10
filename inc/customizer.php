@@ -231,7 +231,37 @@ function wordpress_class_customize_register( $wp_customize ) {
         'priority'    => 5
     ) );
 
-    for($i=1; $i < 5; $i++) {
+    $blog_prod_categories_array = array('-' => __('Select category','blog'));
+
+    $blog_prod_categories = get_categories( array('taxonomy' => 'product_cat', 'hide_empty' => 0, 'title_li' => '') );
+
+    if( !empty($blog_prod_categories) ):
+        foreach ($blog_prod_categories as $blog_prod_cat):
+
+            if( !empty($blog_prod_cat->term_id) && !empty($blog_prod_cat->name) ):
+                $blog_prod_categories_array[$blog_prod_cat->term_id] = $blog_prod_cat->name;
+            endif;
+
+
+        endforeach;
+    endif;
+
+    /* Category */
+    $wp_customize->add_setting( 'blog_products_category', array(
+        'transport'             =>  'postMessage',
+        'capability'            =>  'edit_theme_options',
+        'sanitize_callback'     =>  'blog_sanitize_text'
+    ));
+
+    $wp_customize->add_control( 'blog_products_category', array(
+        'type' 		            =>  'select',
+        'label' 	            =>  esc_html__( 'Products category', 'blog' ),
+        'description'           =>  esc_html__( 'Pick a product category. WooCommerce latest products are displaying.', 'blog' ),
+        'section' 	            =>  'blog_slider_section',
+        'choices'               =>  $blog_prod_categories_array,
+    ));
+
+   /* for($i=1; $i < 5; $i++) {
         $wp_customize->add_setting('blog_heading_title_setting' . $i, array(
             'capability' => 'edit_theme_options',
         ));
@@ -263,7 +293,7 @@ function wordpress_class_customize_register( $wp_customize ) {
             'section' => 'blog_slider_section',
             'setting' => 'blog_slider_setting' . $i
         )));
-    }
+    }*/
 
     // about ndi  add section
     $wp_customize->add_section('blog_about_ndi_section', array(
