@@ -27,6 +27,10 @@ get_header();
                         </ul>
                     </div>
 
+                  <?php
+                  dynamic_sidebar('feature_post');
+                  ?>
+
 
                 </div>
             </div>

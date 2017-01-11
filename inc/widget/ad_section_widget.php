@@ -59,8 +59,8 @@ public function widget($args, $instance){
 	$category = $instance['category'];
 
 	$args_category = new WP_Query(array(
-		'posts_per_page' => 4,
-		'post_type' => 'post',
+		'posts_per_page' => 40,
+		'post_type' => 'our_menu',
 		'category__in' => $category
 
 		));
@@ -68,29 +68,62 @@ public function widget($args, $instance){
 	$cat_slug = get_category($category);
 
 	?>
-	 <div class="learn_more">
-                        <h3><?php echo $title;?></h3>
-                        <div class="learn_main_section">
-                            <ul class="clearfix">
-                               <?php
-                               while($args_category->have_posts()):
-                               	$args_category->the_post();
-                               	?>
-                                <li><?php echo the_post_thumbnail();?>
-                                </li>
-                                
-                                
-                               <?php
-                               	endwhile;
-                               
+	 
+	  <div class="International_news">
+                    <div class="title">Internation News</div>
+                    <br/>
+                    <?php
+                    $i = 1;
+                    if($args_category->post_count > 0){
+                    while($args_category->have_posts()):
+                    	$args_category->the_post();
+                    	?>
+                    <?php
+                    if($i == 1 || $i == 2){
+                    	?>
+                    	<div class="col-lg-6">
+                        <div class="image" style="width:250px; height:200px;">
+                        <?php the_post_thumbnail();?>
 
-                               
-                               ?>
-                               <a href="<?php echo site_url() . '/category/' . $cat_slug->slug;?>">View All</a>
-
-                            </ul>
                         </div>
+                        <div class="i_title"><?php the_title();?></div>
+                        <div class="deatails"><?php the_content();?></div>
                     </div>
+                    	<?php
+                    }
+                    
+                    	$i++;
+                    	endwhile;
+
+                }
+                ?>
+
+                    <br/>
+                    <div class="d_div">
+                    <?php
+                    $i = 1;
+                    while($args_category->have_posts()):
+                    	$args_category->the_post();
+                    ?>
+                    <?php
+                    if($i > 2){
+                    	?>
+                    	<div class="col-lg-6">
+                  
+                    <div class="image"><?php echo the_post_thumbnail();?></div>
+                    <div class="d_title"><?php the_title();?></div>
+                    </div>
+                    	<?php
+                    }
+                    
+                    $i++;
+                    	endwhile;
+                    ?>
+                    
+                    </div>
+                    </div>
+
+	 
 
 	<?php
 }
