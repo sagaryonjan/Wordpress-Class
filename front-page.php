@@ -11,19 +11,46 @@ get_header();
             <div class="col-lg-8">
                 <div class="leftbar">
                     <div class="photo_slider">
-                        <ul class="bxslider">
+                        <!--<ul class="bxslider">
                             <?php
-                            for ($i = 1; $i < 5; $i++) {
+/*                            for ($i = 1; $i < 5; $i++) {
 
                                 $slider_image = get_theme_mod('blog_slider_setting' . $i);
                                 $slider_title = get_theme_mod('blog_slider_title_setting' . $i);
                                 if (!empty($slider_image)) {
-                                    ?>
-                                    <li><img src="<?php echo $slider_image; ?>" alt="Slider Img"/>
-                                        <p><?php echo $slider_title; ?></p>
+                                    */?>
+                                    <li><img src="<?php /*echo $slider_image; */?>" alt="Slider Img"/>
+                                        <p><?php /*echo $slider_title; */?></p>
                                     </li>
-                                <?php }
-                            } ?>
+                                <?php /*}
+                            } */?>
+                        </ul>-->
+                        <ul class="bxslider">
+                            <?php
+                $get_theme_category_mod = get_theme_mod('blog_products_category');
+
+                            $get_featured_posts = new WP_Query(array(
+                                'post_type'       =>  'product',
+                                'orderby'         => 'date',
+                                'posts_per_page'  => 5,
+                                'tax_query'       =>  array(
+                                    array(
+                                        'taxonomy'  => 'product_cat',
+                                        'field'     => 'id',
+                                        'terms'     => $get_theme_category_mod
+                                    ) )
+                            ));
+
+                         while ($get_featured_posts->have_posts()):$get_featured_posts->the_post();
+                                    ?>
+                                    <li>
+                                        <img src="<?php the_post_thumbnail_url(); ?>" alt="Slider Img"/>
+                                        <a href="<?php the_permalink(); ?>"><p>Add To Cart</p></a>
+                                    </li>
+                                <?php
+                                endwhile;
+                                wp_reset_query();
+                             ?>
                         </ul>
                     </div>
 

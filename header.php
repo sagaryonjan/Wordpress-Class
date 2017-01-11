@@ -142,11 +142,11 @@ wp_head();
                                        href="<?php echo esc_url(get_template_directory_uri()); ?>/#">Navigation</a>
                                 </div>
                                 <div id="navbar" class="navbar-collapse collapse">
-                                    <?php
-                                    wp_nav_menu(array(
-                                    'theme_location' => 'primary',
-                                    'menu_class' => 'nav navbar-nav'
-                                        ));
+                                    <?php  wp_nav_menu(
+                                            array( 'theme_location' => 'primary',
+                                                   'menu_class'     => 'nav navbar-nav',
+                                                   'menu_id'        => 'primary'
+                                            ));
                                         ?>
                                 </div>
                                 <!--/.nav-collapse --> <!--/.container-fluid -->

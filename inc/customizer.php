@@ -250,7 +250,7 @@ function wordpress_class_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'blog_products_category', array(
         'transport'             =>  'postMessage',
         'capability'            =>  'edit_theme_options',
-        'sanitize_callback'     =>  'blog_sanitize_text'
+        'sanitize_callback'     =>  'section_input_integer'
     ));
 
     $wp_customize->add_control( 'blog_products_category', array(
@@ -521,6 +521,13 @@ function wordpress_class_customize_register( $wp_customize ) {
             'string5' => esc_html__('Title 4')
         )
     ));
+
+
+    function section_input_integer($value){
+        $data = (int) $value;
+
+        return $data;
+    }
 
  function section_radio_sanitize_callback($value){
      if(! in_array($value, array('string1','string2','string4','string5'))){
