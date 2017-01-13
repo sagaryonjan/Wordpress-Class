@@ -27,9 +27,38 @@ get_header();
                         </ul>
                     </div>
 
-                  <?php
-                  dynamic_sidebar('feature_post');
-                  ?>
+                 
+                 <?php
+                 dynamic_sidebar('advertise_section');
+                 ?>
+
+                 
+
+
+
+<div class="about_ndi">
+<h3>About NDI</h3>
+<div class="ndi_main_section">
+<p>“This battle will liberate us; we want to be involved in the decision making process. Women will not continue to be used as fillers,” declared Socorro Torres, coordinator of the Honduras Interparty Women’s Network (Red de Mujeres Interpartidarias de Honduras, or the Network). Torres’s comments were in response to the historic
+
+</p>
+<div class="read_more_a_n">
+<a href="#">Read More <i class="fa fa-share"></i></a>
+</div>
+</div>
+</div>
+
+<div class="about_ndi">
+<h3>About NDI</h3>
+<div class="ndi_main_section">
+<p>“This battle will liberate us; we want to be involved in the decision making process. Women will not continue to be used as fillers,” declared Socorro Torres, coordinator of the Honduras Interparty Women’s Network (Red de Mujeres Interpartidarias de Honduras, or the Network). Torres’s comments were in response to the historic
+
+</p>
+<div class="read_more_a_n">
+<a href="#">Read More <i class="fa fa-share"></i></a>
+</div>
+</div>
+</div>
 
 
                 </div>
@@ -60,7 +89,7 @@ get_header();
                         </div>
                         <?php
                         if (is_active_sidebar('feature_post')) {
-                            echo dynamic_sidebar('feature_post');
+                             dynamic_sidebar('feature_post');
                         }
                         ?>
 

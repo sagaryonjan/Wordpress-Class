@@ -1,1 +1,0 @@
-<a href="<?php the_permalink();?>"><?php echo get_the_title();?></a>

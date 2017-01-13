@@ -75,14 +75,13 @@ class news_section extends WP_Widget{
 
 		$news_details = new WP_Query(array(
 			'post_per_page' => 3,
-			'post_type' => 'post',
+			'post_type' => 'our_menu',
 			'status' => 'publish',
 			'order_by' => 'date',
 			'order' => 'desc',
 			'category__in' => $category
 			));
 		$cat_slug = get_category($category);
-
 		?>
 		<div class="inthis_section">
                         <h3><?php echo $title;?></h3>

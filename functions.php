@@ -130,6 +130,52 @@ function blog_image_uploader() {
     wp_enqueue_script('blog-widget-image-upload', get_template_directory_uri() . '/js/image-uploader.js', false, '20150309', true);
 }
 
+function awesome_custom_post(){
+	$labels = array(
+		'name' => 'portfulio',
+		'singular_name' => 'portfulio',
+		'add_new' => 'Add Portfulio Item',
+		'all_items' => 'All Items',
+		'add_new_item' => 'Add Item',
+		'edit_item' => 'Edit Item',
+		'new_item' => 'New Item',
+		'view_item' => 'View Item',
+		'search_item' => 'Search Iteam',
+		'not_found' => 'No Item Found',
+		'not_found_in_trash' => 'No Item Found In Trash',
+		'parent_item_colan' => 'Parent Item'
+		);
+
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'publicly_quaryable' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail',
+			'revision',
+			  'custom-fields', 
+
+
+			),
+		'taxonomies' => array('category', 'post_tag'),
+		'menu_position' => 5,
+		'exclude_form_search' => false,
+
+
+		);
+	register_post_type('portfulio', $args);
+}
+
+add_action('init', 'awesome_custom_post' );
+
 /**
  * Implement the Custom Header feature.
  */

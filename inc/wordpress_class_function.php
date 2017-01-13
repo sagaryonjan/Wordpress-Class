@@ -32,6 +32,13 @@ function wordpress_class_widgets_init()
         'id' => 'learn_more',
         'description' => __('Add Widget')
         ));
+
+
+    register_sidebar(array(
+        'name' => __('Advertise  Widget Here', 'blog'),
+        'id' => 'advertise_section',
+        'description' => __('Add Widget')
+        ));
 }
 
 add_action('widgets_init', 'wordpress_class_widgets_init');

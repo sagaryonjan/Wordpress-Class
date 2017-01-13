@@ -149,6 +149,10 @@ wp_head();
                                         ));
                                         ?>
                                 </div>
+                                <div class="search_form">
+                                <form action="<?php echo site_url('/');?>" method="get">
+                                <input type="search" name="s"  value="<?php echo get_search_query();?>">
+                                </div>
                                 <!--/.nav-collapse --> <!--/.container-fluid -->
                             </nav>
                         </div>
