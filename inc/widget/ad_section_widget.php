@@ -60,7 +60,7 @@ public function widget($args, $instance){
 
 	$args_category = new WP_Query(array(
 		'posts_per_page' => 40,
-		'post_type' => 'post',
+		'post_type' => 'our_menu',
 		'category__in' => $category,
 		
 
@@ -78,11 +78,11 @@ public function widget($args, $instance){
 while ($args_category->have_posts()):
 	$args_category->the_post();
 ?>
-<p><?php the_title();?></p>
+<a href="<?php the_permalink(); ?>"><p><?php the_title();?></p></a>
 <?php
 endwhile;
 ?>
-<a href="<?php echo site_url() . '/category/' . $cat_slug->slug;?>">View All </a>
+<a href="<?php echo site_url() . '/' . $cat_slug->slug;?>">View All </a>
 </div>
 </div>
 </div>
