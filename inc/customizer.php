@@ -459,11 +459,23 @@ function wordpress_class_customize_register( $wp_customize ) {
         'priority'  => 20
         ));
 
+
+
+    //this section panel
+    $wp_customize->add_panel('this_section_panel', array(
+        'title' => __('Add This Section', 'blog'),
+        'description' => __('This is This section'),
+        'capability' => 'edit_theme_options',
+        'priority'  => 31
+        ));
+
     //this section add section
+
     $wp_customize->add_section('blog_this_section_add_section', array(
         'title' => __('Add This Section', 'blog'),
         'description' => __('This Section Here', 'blog'),
-        'priority' => 21
+        'priority' => 21,
+        'panel' => 'this_section_panel',
         ));
 
     //this section add seting

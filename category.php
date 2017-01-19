@@ -7,3 +7,5 @@
  * @package CVlog
  */
 
+	
+	$cat = get_category();
